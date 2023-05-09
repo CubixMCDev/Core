@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'com.cubixmc'
+version = '0.0.1'
+
+/*
+uft-8
+ */
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    systemProperty 'file.encoding', 'UTF-8'
+}
+
+/*
+end uft-8
+ */
+
+repositories {
+    mavenCentral()
+
+    maven {
+        name 'waterdog-repo'
+        url 'https://repo.waterdog.dev/artifactory/main'
+    }
+    maven {
+        name 'opencollab-releases'
+        url 'https://repo.opencollab.dev/maven-releases/'
+    }
+    maven {
+        name 'opencollab-snapshots'
+        url 'https://repo.opencollab.dev/maven-snapshots/'
+    }
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    compileOnly 'dev.waterdog.waterdogpe:waterdog:2.0.0-SNAPSHOT'
+    compileOnly 'org.cloudburstmc.protocol:bedrock-connection:3.0.0.Beta1-SNAPSHOT'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+shadowJar { }
+
+build.dependsOn shadowJar

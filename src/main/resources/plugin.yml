@@ -1,0 +1,6 @@
+name: "Core"
+main: "com.cubixmc.Core"
+version: "0.0.1"
+author: "Pipo"
+website: "https://github.com/CubixMCDev"
+load: "STARTUP"
