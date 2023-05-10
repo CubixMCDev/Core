@@ -43,7 +43,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation platform('org.junit:junit-bom:5.9.3')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     compileOnly 'dev.waterdog.waterdogpe:waterdog:2.0.0-SNAPSHOT'
     compileOnly 'org.cloudburstmc.protocol:bedrock-connection:3.0.0.Beta1-SNAPSHOT'
